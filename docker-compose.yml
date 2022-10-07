@@ -1,0 +1,9 @@
+services:
+  jahia-angular:
+    image: jahia/jahia-ee:8.1.2.0
+    container_name: JAHIA_Angular
+    ports:
+      - 8080:8080
+    environment:
+      EXECUTE_PROVISIONING_SCRIPT: './provisionning/provisioning.yaml'
+    
