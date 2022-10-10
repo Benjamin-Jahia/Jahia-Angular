@@ -1,0 +1,16 @@
+<div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="error">
+    <h2>Error :(</h2>
+    <p>{{error}}</p>
+  </div>
+  <div *ngIf="companies">
+    <div *ngFor="let company of companies">
+      <h2>{{ company.title }}</h2>
+      <img *ngIf="company.thumbnail" src={{generateURL(company.thumbnail.url.path)}} />
+      <p *ngIf="!company.thumbnail">No image given</p>
+      <p *ngIf="company.description">{{ company.description.value }}</p>
+      <p *ngIf="!company.description">No description given</p>
+    </div>
+  </div>

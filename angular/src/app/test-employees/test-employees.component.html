@@ -1,0 +1,34 @@
+<p>Employees</p>
+<div *ngIf="error">
+    <h2>Error :(</h2>
+    <p>{{error}}</p>
+</div>
+
+<div *ngIf="employees">
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Détails</th>
+        </tr>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.lname}}</td>
+            <td>{{employee.fname}}</td>
+            <td><button (click)="showDetails(employee.path)">Details</button></td>
+        </tr>
+    </table>
+  </div>
+
+  <div *ngIf="selectedEmployee">
+    <h1>Details of : {{selectedEmployee.fname}}</h1>
+    <table>
+        <tr>
+            <th>Nom complet</th>
+        </tr>
+        <tr>
+            <td>{{selectedEmployee.completeName}}</td>
+        </tr>    
+    </table>
+    <td><img src={{urlFromPath(selectedEmployee.thumbnail)}}/></td>
+  </div>
