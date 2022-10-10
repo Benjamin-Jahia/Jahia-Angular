@@ -1,20 +1,22 @@
-Dunno why
+# Jahia with Angular Front
 
-java.io.IOException: Resource not found, /var/jahia/patches/groovy/create-token.groovy
-at org.jahia.bundles.provisioning.impl.operations.ProvisioningScriptUtil.getResource(ProvisioningScriptUtil.java:84) 
+> Note: `Sample project to bind an Angular front to a Jahia app`
 
-But 
+### Usage
 
-INFO  [TokensServiceImpl] - New token generated TokenDetails{key='9201cd9b-4e62-415e-b523-e198dd7e4756', userId='/users/root', name='test-token12345',...
- 
-AND
+Clone Project and run 
+```sh
+docker-compose up --build
+```
+Connect to `localhost:4200` using a non CORS blocking navigator.
+(eg: _chrome.exe --disable-web-security --user-data-dir=C:/chromeTemp_)
 
-INFO  [Patcher] - Found patch scripts file [/var/jahia/patches/groovy/create-token.groovy]. Executing...
-ERROR [GroovyPatcher] - Execution of script failed with error: javax.script.ScriptException: java.lang.IllegalArgumentException: token already exists
+### Infos
 
-Maybe should try with setResult("remove"); option, but seems like Jahia doesn't have rights on file to remove it :-/
-Try to cp file in dir after container built but before startup ==> nope it looks that /var/jahia/patches/groovy directory is filled after jahia initalization, removing our file :-( 
-Update groovy script to test token existance ?
+Two Docker containers will be built and started.
 
-Seeeeems OK !!! 
-Just give ownership of script to tomcat, and put it in proper directory !
+The JAHIA_Angular container uses 3 provisioning files : 
+
+* `create-token.groovy` : Inserts a token for Api access to Jahia
+* `...authorization-myapp.yml` : Adds an authorization scope to allow Graphql queries
+* `provisionning.yaml`: Installs required modules and the Digitall site (needs cleanup since we only use jdnt:company from the site)

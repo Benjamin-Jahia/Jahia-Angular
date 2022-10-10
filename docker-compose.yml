@@ -1,6 +1,25 @@
+networks:
+  isolation-network:
+    driver: bridge
+    
 services:
+      
   jahia-angular:
     build: ./jahia
     container_name: JAHIA_Angular
     ports:
       - 8080:8080
+    networks:
+      - isolation-network
+    environment:
+      EXECUTE_PROVISIONING_SCRIPT: 'file:/var/jahia/tmp/provisioning.yaml'
+
+  angular-front:
+    build: ./angular
+    container_name: FRONT_Angular
+    ports:
+      - 4200:4200
+    networks:
+      - isolation-network
+    links:
+       - 'jahia-angular'

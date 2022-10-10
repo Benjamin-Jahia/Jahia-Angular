@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Apollo, gql} from 'apollo-angular';
+import { environment } from '../../environments/environment';
 import { Company } from '../model/company';
 
 @Component({
@@ -49,6 +50,6 @@ export class MyComponentComponent implements OnInit {
   }
 
   public generateURL (path:String)  {
-    return "http://localhost:8080/files/live/"+path+"?t=thumbnail2";
+      return environment.jahia_domain + environment.jahia_files + path + environment.jahia_thumbnail;
   }
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  jahia_domain: 'http://localhost:8080',
+  jahia_domain: 'http://localhost:8080/',
   jahia_files: "/files/live",
   jahia_thumbnail: "?t=thumbnail2",
   admin_token: 'W3y+OPQ4SS+vUPQCsTL2jSnQB+xEbTQQAfOQxXyBLZk='

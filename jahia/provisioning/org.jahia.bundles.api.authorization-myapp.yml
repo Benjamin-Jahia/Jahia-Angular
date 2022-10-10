@@ -1,0 +1,14 @@
+---
+graphql_test:
+  grants:
+  - node: "none"
+    api: "graphql"
+  - node:
+     pathPattern: /,/sites(/.*)?,/modules(/.*)?,/mounts(/.*)?
+     excludedPathPattern: /sites/[^/]+/users(/.*)?
+    api: "graphql"
+  auto_apply:
+  - always: "true"
+  metadata:
+    visible: "true"
+  description: "Can access graphql API"

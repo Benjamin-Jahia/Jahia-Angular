@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
-const uri = 'http://localhost:8080/modules/graphql';
+const uri = environment.jahia_domain + 'modules/graphql';
 const headers = new HttpHeaders({authorization: 'APIToken ' + environment.admin_token});
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
