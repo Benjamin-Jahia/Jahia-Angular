@@ -29,9 +29,31 @@ export class MyComponentComponent implements OnInit {
               description: property(name: "overview", language: "en") {
                 value
               }
+              headline: property(name: "headline", language: "en") {
+                value
+              }
               thumbnail: property(name: "thumbnail", language: "en") {
                 url: refNode {
                   path
+                }
+              }
+              logo: property(name: "logo", language: "en") {
+                url: refNode {
+                  path
+                }
+              }
+              phone: property(name: "phone", language: "en") {
+                value
+              }
+              email: property(name: "email", language: "en") {
+                value
+              }
+              website: property(name: "website", language: "en") {
+                value
+              }
+              industry: property(name: "industryCat", language: "en") {
+                name: refNode {
+                  name: displayName(language: "en")
                 }
               }
             }

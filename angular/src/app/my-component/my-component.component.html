@@ -6,11 +6,19 @@
     <p>{{error}}</p>
   </div>
   <div *ngIf="companies">
-    <div *ngFor="let company of companies">
-      <h2>{{ company.title }}</h2>
-      <img *ngIf="company.thumbnail" src={{generateURL(company.thumbnail.url.path)}} />
-      <p *ngIf="!company.thumbnail">No image given</p>
-      <p *ngIf="company.description">{{ company.description.value }}</p>
-      <p *ngIf="!company.description">No description given</p>
-    </div>
-  </div>
+  <mat-card class="example-card"  *ngFor="let company of companies">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" style="background-image: url('{{generateURL(company.logo.url.path)}}');
+      background-size: cover;"></div>
+      <mat-card-title>{{ company.title |titlecase }}</mat-card-title>
+      <mat-card-subtitle>{{ company.industry.name.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{generateURL(company.thumbnail.url.path)}} alt="Company Photo">
+    <mat-card-content innerHTML="{{company.description.value}}">
+    </mat-card-content>
+    <mat-card-footer class="terminal">
+      <a routerLink="/company" [state]="{ data: company}">Update...</a>
+    </mat-card-footer>
+  </mat-card>
+</div>
+

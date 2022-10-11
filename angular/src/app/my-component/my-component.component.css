@@ -1,0 +1,14 @@
+.example-card {
+        margin-bottom: 32px;
+        max-width: 600px;
+}
+
+.terminal {
+    position: relative;
+    width:fit-content;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+

@@ -1,8 +1,11 @@
 export class Company {
-    title!:String;
+    title!:string;
     uuid!:String;
     description!:Description;
     thumbnail!:Thumbnail;
+    logo!:Thumbnail;
+    industry!:Industry;
+    headline!:Description;
 }
 
 export class Typed{
@@ -19,4 +22,12 @@ export class Thumbnail extends Typed{
 
 export class NodeUrl extends Typed{
     path!: String;
+}
+
+export class Industry extends Typed{
+    name!: NodeName;
+}
+
+export class NodeName extends Typed{
+    name!: String;
 }

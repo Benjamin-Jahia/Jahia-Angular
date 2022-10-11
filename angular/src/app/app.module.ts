@@ -9,11 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { TestEmployeesComponent } from './test-employees/test-employees.component';
 import { MatTableModule } from '@angular/material/table' 
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { CompanyComponent } from './pages/company/company.component'
 const routes: Routes = [
   { path: 'graphql', component: MyComponentComponent },
   { path: 'exchange', component: ExchangeRatesComponent },
-  { path: 'employees', component: TestEmployeesComponent }
+  { path: 'employees', component: TestEmployeesComponent },
+  { path: 'company', component: CompanyComponent }
 ];
 
 
@@ -22,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     MyComponentComponent,
     ExchangeRatesComponent,
-    TestEmployeesComponent
+    TestEmployeesComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ const routes: Routes = [
     GraphQLModule,
     HttpClientModule,
     MatTableModule,
-    MatIconModule
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule
   ],
   exports: [RouterModule],
   providers: [],
