@@ -9,7 +9,10 @@ Clone Project and run
 docker-compose up --build
 ```
 Connect to `localhost:4200` using a non CORS blocking navigator.
-(eg: _chrome.exe --disable-web-security --user-data-dir=C:/chromeTemp_)
+For exemple :
+```sh
+chrome.exe --disable-web-security --user-data-dir=C:/chromeTemp
+```
 
 ### Infos
 
